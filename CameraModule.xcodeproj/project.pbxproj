@@ -13,8 +13,9 @@
 		8C4124802CEFEE1F000F61DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C41247E2CEFEE1F000F61DB /* Main.storyboard */; };
 		8C4124822CEFEE21000F61DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C4124812CEFEE21000F61DB /* Assets.xcassets */; };
 		8C4124852CEFEE21000F61DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C4124832CEFEE21000F61DB /* LaunchScreen.storyboard */; };
-		8C41248D2CF0A40A000F61DB /* MediaGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41248C2CF0A40A000F61DB /* MediaGridViewController.swift */; };
+		8C41248D2CF0A40A000F61DB /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41248C2CF0A40A000F61DB /* GalleryViewController.swift */; };
 		8C4124902CF0A7FF000F61DB /* GalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41248F2CF0A7FF000F61DB /* GalleryViewCell.swift */; };
+		8C4124922CF0B23D000F61DB /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124912CF0B23D000F61DB /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +27,9 @@
 		8C4124812CEFEE21000F61DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C4124842CEFEE21000F61DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C4124862CEFEE21000F61DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C41248C2CF0A40A000F61DB /* MediaGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaGridViewController.swift; sourceTree = "<group>"; };
+		8C41248C2CF0A40A000F61DB /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		8C41248F2CF0A7FF000F61DB /* GalleryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewCell.swift; sourceTree = "<group>"; };
+		8C4124912CF0B23D000F61DB /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,10 +77,27 @@
 		8C41248E2CF0A7EE000F61DB /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				8C41248C2CF0A40A000F61DB /* MediaGridViewController.swift */,
-				8C41248F2CF0A7FF000F61DB /* GalleryViewCell.swift */,
+				8C4124942CF0C3CB000F61DB /* ViewControllers */,
+				8C4124932CF0C3C2000F61DB /* Views */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		8C4124932CF0C3C2000F61DB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8C41248F2CF0A7FF000F61DB /* GalleryViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8C4124942CF0C3CB000F61DB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8C41248C2CF0A40A000F61DB /* GalleryViewController.swift */,
+				8C4124912CF0B23D000F61DB /* CameraViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,8 +172,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C41247D2CEFEE1F000F61DB /* ViewController.swift in Sources */,
+				8C4124922CF0B23D000F61DB /* CameraViewController.swift in Sources */,
 				8C4124902CF0A7FF000F61DB /* GalleryViewCell.swift in Sources */,
-				8C41248D2CF0A40A000F61DB /* MediaGridViewController.swift in Sources */,
+				8C41248D2CF0A40A000F61DB /* GalleryViewController.swift in Sources */,
 				8C4124792CEFEE1F000F61DB /* AppDelegate.swift in Sources */,
 				8C41247B2CEFEE1F000F61DB /* SceneDelegate.swift in Sources */,
 			);

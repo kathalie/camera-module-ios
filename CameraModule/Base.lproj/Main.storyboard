@@ -62,7 +62,23 @@
                             <outlet property="delegate" destination="dwm-vA-MHU" id="0Ge-2M-mCU"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Gallery" id="Aq1-DP-4qh"/>
+                    <navigationItem key="navigationItem" title="Gallery" id="Aq1-DP-4qh">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="wSb-m0-9cT">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="I7q-Fn-JtA">
+                                <rect key="frame" x="16" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="camera" catalog="system"/>
+                                <connections>
+                                    <segue destination="pg3-q4-Us8" kind="show" id="JiX-ga-kYU"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="goToCameraView:" destination="dwm-vA-MHU" id="dOh-JI-mZz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" id="YGv-t1-HlW"/>
                     </connections>
@@ -70,6 +86,98 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8M-tw-efh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1576" y="-73"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="rWj-k4-jT1">
+            <objects>
+                <viewController id="pg3-q4-Us8" customClass="CameraViewController" customModule="CameraModule" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VPz-eM-aDv">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oJz-0p-KAW">
+                                <rect key="frame" x="76" y="225" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qN-Ko-zRX">
+                                <rect key="frame" x="0.0" y="643" width="393" height="175"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oJY-jT-DUC">
+                                        <rect key="frame" x="131" y="16" width="131" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="ouU-tu-dws"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" systemColor="systemPinkColor"/>
+                                    </segmentedControl>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="stN-bk-0ua">
+                                        <rect key="frame" x="0.0" y="67" width="393" height="108"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chW-9q-7Yt">
+                                                <rect key="frame" x="309" y="36.666666666666629" width="56" height="35"/>
+                                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="arrow.triangle.2.circlepath.camera" catalog="system"/>
+                                                <connections>
+                                                    <action selector="changeCameraPosition:" destination="pg3-q4-Us8" eventType="touchUpInside" id="OuW-eP-Cxn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrc-mf-Lrj">
+                                                <rect key="frame" x="152.66666666666666" y="10" width="88" height="88"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="rrc-mf-Lrj" secondAttribute="height" multiplier="1:1" id="iif-Du-dXd"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain"/>
+                                                <connections>
+                                                    <action selector="capture:" destination="pg3-q4-Us8" eventType="touchUpInside" id="3tg-8l-Bay"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="rrc-mf-Lrj" firstAttribute="top" secondItem="stN-bk-0ua" secondAttribute="top" constant="10" id="4OL-7I-gYo"/>
+                                            <constraint firstItem="chW-9q-7Yt" firstAttribute="centerY" secondItem="stN-bk-0ua" secondAttribute="centerY" id="HTw-pa-sb1"/>
+                                            <constraint firstItem="rrc-mf-Lrj" firstAttribute="centerX" secondItem="stN-bk-0ua" secondAttribute="centerX" id="NoO-su-ncL"/>
+                                            <constraint firstAttribute="bottom" secondItem="rrc-mf-Lrj" secondAttribute="bottom" constant="10" id="ctN-il-YUe"/>
+                                            <constraint firstAttribute="trailing" secondItem="chW-9q-7Yt" secondAttribute="trailing" constant="28" id="swV-7U-eVD"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="oJY-jT-DUC" firstAttribute="top" secondItem="2qN-Ko-zRX" secondAttribute="top" constant="16" id="0sy-MV-6IE"/>
+                                    <constraint firstAttribute="height" constant="175" id="9Em-eb-2VC"/>
+                                    <constraint firstItem="stN-bk-0ua" firstAttribute="top" secondItem="oJY-jT-DUC" secondAttribute="bottom" constant="16" id="EOm-eE-jki"/>
+                                    <constraint firstAttribute="bottom" secondItem="stN-bk-0ua" secondAttribute="bottom" id="GId-6J-e8o"/>
+                                    <constraint firstItem="stN-bk-0ua" firstAttribute="leading" secondItem="2qN-Ko-zRX" secondAttribute="leading" id="Tqq-QZ-C0J"/>
+                                    <constraint firstAttribute="trailing" secondItem="stN-bk-0ua" secondAttribute="trailing" id="WLP-GZ-U99"/>
+                                    <constraint firstItem="oJY-jT-DUC" firstAttribute="centerX" secondItem="2qN-Ko-zRX" secondAttribute="centerX" id="gHH-Vp-zcZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Yt4-fV-dNi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yt4-fV-dNi" firstAttribute="bottom" secondItem="2qN-Ko-zRX" secondAttribute="bottom" id="Vw2-U3-flf"/>
+                            <constraint firstItem="2qN-Ko-zRX" firstAttribute="leading" secondItem="Yt4-fV-dNi" secondAttribute="leading" id="b71-M8-Sgn"/>
+                            <constraint firstItem="Yt4-fV-dNi" firstAttribute="trailing" secondItem="2qN-Ko-zRX" secondAttribute="trailing" id="jVX-HS-Ybe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="s9O-em-MSD"/>
+                    <connections>
+                        <outlet property="cameraPreview" destination="oJz-0p-KAW" id="eHH-LV-lCe"/>
+                        <outlet property="captureButton" destination="rrc-mf-Lrj" id="yBT-wr-MuR"/>
+                        <outlet property="capturingModesSegmentedView" destination="oJY-jT-DUC" id="l2x-wG-xIx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GXB-EH-m1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1575" y="630"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5mp-Js-20h">
@@ -91,8 +199,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.triangle.2.circlepath.camera" catalog="system" width="128" height="93"/>
+        <image name="camera" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
