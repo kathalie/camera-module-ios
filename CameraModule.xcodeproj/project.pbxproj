@@ -295,6 +295,8 @@
 				DEVELOPMENT_TEAM = D85QWSUNYA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CameraModule/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Required to capture photos and record video content";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Required to record video content";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -323,6 +325,8 @@
 				DEVELOPMENT_TEAM = D85QWSUNYA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CameraModule/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Required to capture photos and record video content";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Required to record video content";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
