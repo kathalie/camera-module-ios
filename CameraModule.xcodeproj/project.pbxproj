@@ -13,6 +13,8 @@
 		8C4124802CEFEE1F000F61DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C41247E2CEFEE1F000F61DB /* Main.storyboard */; };
 		8C4124822CEFEE21000F61DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C4124812CEFEE21000F61DB /* Assets.xcassets */; };
 		8C4124852CEFEE21000F61DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C4124832CEFEE21000F61DB /* LaunchScreen.storyboard */; };
+		8C41248D2CF0A40A000F61DB /* MediaGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41248C2CF0A40A000F61DB /* MediaGridViewController.swift */; };
+		8C4124902CF0A7FF000F61DB /* GalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41248F2CF0A7FF000F61DB /* GalleryViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		8C4124812CEFEE21000F61DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C4124842CEFEE21000F61DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C4124862CEFEE21000F61DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C41248C2CF0A40A000F61DB /* MediaGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaGridViewController.swift; sourceTree = "<group>"; };
+		8C41248F2CF0A7FF000F61DB /* GalleryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		8C4124772CEFEE1F000F61DB /* CameraModule */ = {
 			isa = PBXGroup;
 			children = (
+				8C41248E2CF0A7EE000F61DB /* UI */,
 				8C4124782CEFEE1F000F61DB /* AppDelegate.swift */,
 				8C41247A2CEFEE1F000F61DB /* SceneDelegate.swift */,
 				8C41247C2CEFEE1F000F61DB /* ViewController.swift */,
@@ -65,6 +70,15 @@
 				8C4124862CEFEE21000F61DB /* Info.plist */,
 			);
 			path = CameraModule;
+			sourceTree = "<group>";
+		};
+		8C41248E2CF0A7EE000F61DB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8C41248C2CF0A40A000F61DB /* MediaGridViewController.swift */,
+				8C41248F2CF0A7FF000F61DB /* GalleryViewCell.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +153,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C41247D2CEFEE1F000F61DB /* ViewController.swift in Sources */,
+				8C4124902CF0A7FF000F61DB /* GalleryViewCell.swift in Sources */,
+				8C41248D2CF0A40A000F61DB /* MediaGridViewController.swift in Sources */,
 				8C4124792CEFEE1F000F61DB /* AppDelegate.swift in Sources */,
 				8C41247B2CEFEE1F000F61DB /* SceneDelegate.swift in Sources */,
 			);
