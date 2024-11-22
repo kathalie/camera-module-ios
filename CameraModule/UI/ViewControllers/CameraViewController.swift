@@ -41,8 +41,10 @@ class CameraViewController: UIViewController {
     let rectangle = UIView()
     var cameraPosition: CameraPosition = .back
     
-    @IBOutlet private weak var cameraPreview: UIView!
-    @IBOutlet private weak var captureButton: UIButton!
+    let captureSession = AVCaptureSession()
+    
+    @IBOutlet weak var cameraPreview: UIView!
+    @IBOutlet weak var captureButton: UIButton!
     @IBOutlet weak var capturingModesSegmentedView: UISegmentedControl!
     
     @IBAction private func changeCameraPosition(_ sender: Any) {

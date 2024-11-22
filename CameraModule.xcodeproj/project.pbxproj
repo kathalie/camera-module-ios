@@ -17,6 +17,8 @@
 		8C4124902CF0A7FF000F61DB /* PhotoGalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41248F2CF0A7FF000F61DB /* PhotoGalleryViewCell.swift */; };
 		8C4124922CF0B23D000F61DB /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124912CF0B23D000F61DB /* CameraViewController.swift */; };
 		8C4124982CF0F1F5000F61DB /* VideoGalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124972CF0F1F5000F61DB /* VideoGalleryViewCell.swift */; };
+		8C41249A2CF0F3AB000F61DB /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124992CF0F3AB000F61DB /* PreviewView.swift */; };
+		8C41249E2CF0F5A9000F61DB /* CameraViewController+Capturing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41249D2CF0F5A9000F61DB /* CameraViewController+Capturing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		8C41248F2CF0A7FF000F61DB /* PhotoGalleryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewCell.swift; sourceTree = "<group>"; };
 		8C4124912CF0B23D000F61DB /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		8C4124972CF0F1F5000F61DB /* VideoGalleryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGalleryViewCell.swift; sourceTree = "<group>"; };
+		8C4124992CF0F3AB000F61DB /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		8C41249D2CF0F5A9000F61DB /* CameraViewController+Capturing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+Capturing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 			children = (
 				8C41248F2CF0A7FF000F61DB /* PhotoGalleryViewCell.swift */,
 				8C4124972CF0F1F5000F61DB /* VideoGalleryViewCell.swift */,
+				8C4124992CF0F3AB000F61DB /* PreviewView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 			children = (
 				8C41248C2CF0A40A000F61DB /* GalleryViewController.swift */,
 				8C4124912CF0B23D000F61DB /* CameraViewController.swift */,
+				8C41249D2CF0F5A9000F61DB /* CameraViewController+Capturing.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -175,8 +181,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C41247D2CEFEE1F000F61DB /* ViewController.swift in Sources */,
+				8C41249A2CF0F3AB000F61DB /* PreviewView.swift in Sources */,
 				8C4124922CF0B23D000F61DB /* CameraViewController.swift in Sources */,
 				8C4124902CF0A7FF000F61DB /* PhotoGalleryViewCell.swift in Sources */,
+				8C41249E2CF0F5A9000F61DB /* CameraViewController+Capturing.swift in Sources */,
 				8C41248D2CF0A40A000F61DB /* GalleryViewController.swift in Sources */,
 				8C4124792CEFEE1F000F61DB /* AppDelegate.swift in Sources */,
 				8C41247B2CEFEE1F000F61DB /* SceneDelegate.swift in Sources */,
