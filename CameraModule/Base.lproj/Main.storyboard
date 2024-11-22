@@ -96,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJz-0p-KAW" customClass="PreviewView" customModule="CameraModule" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="103" width="393" height="540"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qN-Ko-zRX">
@@ -162,12 +162,12 @@
                         <viewLayoutGuide key="safeArea" id="Yt4-fV-dNi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2qN-Ko-zRX" firstAttribute="top" secondItem="oJz-0p-KAW" secondAttribute="bottom" id="VEk-13-wmB"/>
+                            <constraint firstItem="Yt4-fV-dNi" firstAttribute="bottom" secondItem="oJz-0p-KAW" secondAttribute="bottom" id="VEk-13-wmB"/>
                             <constraint firstItem="Yt4-fV-dNi" firstAttribute="bottom" secondItem="2qN-Ko-zRX" secondAttribute="bottom" id="Vw2-U3-flf"/>
                             <constraint firstItem="2qN-Ko-zRX" firstAttribute="leading" secondItem="Yt4-fV-dNi" secondAttribute="leading" id="b71-M8-Sgn"/>
                             <constraint firstItem="Yt4-fV-dNi" firstAttribute="trailing" secondItem="oJz-0p-KAW" secondAttribute="trailing" id="jSa-h4-YnB"/>
                             <constraint firstItem="Yt4-fV-dNi" firstAttribute="trailing" secondItem="2qN-Ko-zRX" secondAttribute="trailing" id="jVX-HS-Ybe"/>
-                            <constraint firstItem="oJz-0p-KAW" firstAttribute="top" secondItem="Yt4-fV-dNi" secondAttribute="top" id="ryL-T6-KzC"/>
+                            <constraint firstItem="oJz-0p-KAW" firstAttribute="top" secondItem="VPz-eM-aDv" secondAttribute="top" id="ryL-T6-KzC"/>
                             <constraint firstItem="oJz-0p-KAW" firstAttribute="leading" secondItem="Yt4-fV-dNi" secondAttribute="leading" id="wHT-zW-vv8"/>
                         </constraints>
                     </view>
