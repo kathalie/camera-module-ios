@@ -32,7 +32,7 @@ class GalleryViewController: UICollectionViewController {
 //        
 //        return cell
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photo_cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Const.photoCellReuseIdentifier, for: indexPath) as! PhotoGalleryViewCell
         cell.backgroundColor = colorData[indexPath.item]
         return cell
     }

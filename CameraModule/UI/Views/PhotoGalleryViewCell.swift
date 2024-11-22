@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GalleryViewCell: UICollectionViewCell {
+class PhotoGalleryViewCell: UICollectionViewCell {
     func config() {
         
     }
