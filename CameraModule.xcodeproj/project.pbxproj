@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C382E6D2CF17E670099B5BD /* VideoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C382E6C2CF17E670099B5BD /* VideoPreviewViewController.swift */; };
+		8C382E6F2CF180470099B5BD /* LibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C382E6E2CF180470099B5BD /* LibraryManager.swift */; };
 		8C4124792CEFEE1F000F61DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124782CEFEE1F000F61DB /* AppDelegate.swift */; };
 		8C41247B2CEFEE1F000F61DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41247A2CEFEE1F000F61DB /* SceneDelegate.swift */; };
 		8C41247D2CEFEE1F000F61DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41247C2CEFEE1F000F61DB /* ViewController.swift */; };
@@ -22,11 +24,14 @@
 		8C4124A32CF105BA000F61DB /* CameraViewController+AVCapturePhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124A22CF105BA000F61DB /* CameraViewController+AVCapturePhotoCaptureDelegate.swift */; };
 		8C4124A52CF108ED000F61DB /* ViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124A42CF108EC000F61DB /* ViewController+Alerts.swift */; };
 		8C4124A82CF11A3C000F61DB /* CameraViewController+Authorisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124A72CF11A3C000F61DB /* CameraViewController+Authorisation.swift */; };
-		8C4124AA2CF12EDD000F61DB /* FSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124A92CF12EDD000F61DB /* FSService.swift */; };
+		8C4124AA2CF12EDD000F61DB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124A92CF12EDD000F61DB /* StorageManager.swift */; };
 		8C75B0562CF168C400185AE5 /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75B0552CF168C400185AE5 /* PhotoPreviewViewController.swift */; };
+		8C75B0582CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75B0572CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C382E6C2CF17E670099B5BD /* VideoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreviewViewController.swift; sourceTree = "<group>"; };
+		8C382E6E2CF180470099B5BD /* LibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryManager.swift; sourceTree = "<group>"; };
 		8C4124752CEFEE1F000F61DB /* CameraModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4124782CEFEE1F000F61DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C41247A2CEFEE1F000F61DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,8 +49,9 @@
 		8C4124A22CF105BA000F61DB /* CameraViewController+AVCapturePhotoCaptureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+AVCapturePhotoCaptureDelegate.swift"; sourceTree = "<group>"; };
 		8C4124A42CF108EC000F61DB /* ViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Alerts.swift"; sourceTree = "<group>"; };
 		8C4124A72CF11A3C000F61DB /* CameraViewController+Authorisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+Authorisation.swift"; sourceTree = "<group>"; };
-		8C4124A92CF12EDD000F61DB /* FSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSService.swift; sourceTree = "<group>"; };
+		8C4124A92CF12EDD000F61DB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		8C75B0552CF168C400185AE5 /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
+		8C75B0572CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+RecordingDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +124,10 @@
 				8C41249D2CF0F5A9000F61DB /* CameraViewController+Capturing.swift */,
 				8C4124A72CF11A3C000F61DB /* CameraViewController+Authorisation.swift */,
 				8C4124A22CF105BA000F61DB /* CameraViewController+AVCapturePhotoCaptureDelegate.swift */,
+				8C75B0572CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift */,
 				8C4124A42CF108EC000F61DB /* ViewController+Alerts.swift */,
 				8C75B0552CF168C400185AE5 /* PhotoPreviewViewController.swift */,
+				8C382E6C2CF17E670099B5BD /* VideoPreviewViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -127,7 +135,8 @@
 		8C4124A12CF105AE000F61DB /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				8C4124A92CF12EDD000F61DB /* FSService.swift */,
+				8C4124A92CF12EDD000F61DB /* StorageManager.swift */,
+				8C382E6E2CF180470099B5BD /* LibraryManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -205,9 +214,12 @@
 			files = (
 				8C75B0562CF168C400185AE5 /* PhotoPreviewViewController.swift in Sources */,
 				8C4124A32CF105BA000F61DB /* CameraViewController+AVCapturePhotoCaptureDelegate.swift in Sources */,
-				8C4124AA2CF12EDD000F61DB /* FSService.swift in Sources */,
+				8C4124AA2CF12EDD000F61DB /* StorageManager.swift in Sources */,
 				8C41247D2CEFEE1F000F61DB /* ViewController.swift in Sources */,
 				8C4124A52CF108ED000F61DB /* ViewController+Alerts.swift in Sources */,
+				8C75B0582CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift in Sources */,
+				8C382E6F2CF180470099B5BD /* LibraryManager.swift in Sources */,
+				8C382E6D2CF17E670099B5BD /* VideoPreviewViewController.swift in Sources */,
 				8C41249A2CF0F3AB000F61DB /* PreviewView.swift in Sources */,
 				8C4124922CF0B23D000F61DB /* CameraViewController.swift in Sources */,
 				8C4124902CF0A7FF000F61DB /* PhotoGalleryViewCell.swift in Sources */,

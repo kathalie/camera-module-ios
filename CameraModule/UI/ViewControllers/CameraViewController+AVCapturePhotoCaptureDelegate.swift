@@ -26,7 +26,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
         }
         
         do {
-            try FSService.shared.saveImage(photoData)
+            try StorageManager.shared.saveImage(photoData)
         } catch {
             showAlert(title: "Failed to save a photo", message: "Something went wrong while writing to the file system.")
             print("Error saving photo: \(error.localizedDescription)")

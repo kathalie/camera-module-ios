@@ -14,14 +14,16 @@ class GalleryViewController: UICollectionViewController {
         static let videoCellReuseIdentifier = "video_cell"
         static let goToCameraViewSegue = "go_to_camera_view"
         static let goToPhotoPreviewSegue = "go_to_photo_preview"
+        static let goToVideoPreviewSegue = "go_to_video_preview"
     }
     
     struct NotificationName {
         static let needGalleryUpdate = NSNotification.Name("needGalleryUpdate")
     }
     
-    enum Section: CaseIterable {
-        case photos, videos
+    enum Section: String, CaseIterable {
+        case photos = "Photos"
+        case videos = "Video"
     }
     
     var filePaths: [Section: [URL]] = [
@@ -45,7 +47,8 @@ class GalleryViewController: UICollectionViewController {
     @objc
     func loadGallery() {
         do {
-            filePaths[.photos] = try FSService.shared.getSavedPhotos()
+            filePaths[.photos] = try StorageManager.shared.getSavedPhotos()
+            filePaths[.videos] = try StorageManager.shared.getSavedVideos()
             
             collectionView.reloadData()
         } catch {
@@ -66,15 +69,23 @@ class GalleryViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //TODO different cells for different reuse identifiers
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Const.photoCellReuseIdentifier, for: indexPath) as! PhotoGalleryViewCell
-        
-        let imageURL = filePaths[.photos]![indexPath.row]
-        
-        cell.loadImage(from: imageURL)
-        
-        return cell
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Const.photoCellReuseIdentifier, for: indexPath) as! PhotoGalleryViewCell
+            
+            let imageURL = filePaths[.photos]![indexPath.row]
+            
+            cell.loadImage(from: imageURL)
+            
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Const.videoCellReuseIdentifier, for: indexPath) as! VideoGalleryViewCell
+            
+            let videoUrl = filePaths[.videos]![indexPath.row]
+            
+            cell.config(videoUrl)
+            
+            return cell
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -82,6 +93,8 @@ class GalleryViewController: UICollectionViewController {
             let imageUrl = filePaths[.photos]![indexPath.row]
             
             performSegue(withIdentifier: Const.goToPhotoPreviewSegue, sender: imageUrl)
+        } else if indexPath.section == 1 {
+            performSegue(withIdentifier: Const.goToVideoPreviewSegue, sender: indexPath.row)
         }
     }
     
@@ -92,6 +105,11 @@ class GalleryViewController: UICollectionViewController {
             let imageUrl = sender as! URL
             
             photoPreviewVC.config(imageUrl: imageUrl)
+        case Const.goToVideoPreviewSegue:
+            let videoPreviewVC = segue.destination as! VideoPreviewViewController
+            let currentIndex = sender as! Int
+            
+            videoPreviewVC.config(videoUrls: filePaths[.videos]!, currentIndex: currentIndex)
         default: break
         }
     }

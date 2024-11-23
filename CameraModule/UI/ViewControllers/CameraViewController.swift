@@ -92,8 +92,12 @@ class CameraViewController: UIViewController {
         
         switch CapturingMode.current {
         case .photo: capturePhoto()
-            //TODO
-        case .video(let isRecording): return
+        case .video(let isRecording):
+            if isRecording {
+                stopVideo()
+            } else {
+                captureVideo()
+            }
         }
     }
     

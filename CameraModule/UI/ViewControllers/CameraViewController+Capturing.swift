@@ -92,4 +92,19 @@ extension CameraViewController {
         
         photoOutput.capturePhoto(with: photoSettings, delegate: self)
     }
+    
+    func captureVideo() {
+        guard captureSession.isRunning
+        else { return }
+        
+        let path = StorageManager.shared.getDocumentsDirectory()
+        
+        let fileUrl = path.appendingPathComponent("MOV\(Date.now).mp4")
+        
+        videoOutput.startRecording(to: fileUrl, recordingDelegate: self)
+    }
+    
+    func stopVideo() {
+        videoOutput.stopRecording()
+    }
 }

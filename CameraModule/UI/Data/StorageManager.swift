@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Photos
 
-class FSService {
-    static let shared = FSService()
+class StorageManager {
+    static let shared = StorageManager()
     
     private init() {}
     
@@ -36,5 +37,15 @@ class FSService {
         let heicFiles = allFiles.filter { $0.pathExtension.lowercased() == "heic" }
         
         return heicFiles.sorted(by: {$0.lastPathComponent < $1.lastPathComponent})
+    }
+    
+    func getSavedVideos() throws -> [URL]  {
+        let documentsDirectory = getDocumentsDirectory()
+        
+        let allFiles = try FileManager.default.contentsOfDirectory(at: documentsDirectory, includingPropertiesForKeys: nil)
+        
+        let mp4Files = allFiles.filter { $0.pathExtension.lowercased() == "mp4" }
+        
+        return mp4Files.sorted(by: {$0.lastPathComponent < $1.lastPathComponent})
     }
 }
