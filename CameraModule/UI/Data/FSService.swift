@@ -21,7 +21,7 @@ class FSService {
     
     func saveImage(_ data: Data) throws {
         let fileUrl = getDocumentsDirectory()
-            .appendingPathComponent("IMG\(UUID().uuidString).heic")
+            .appendingPathComponent("IMG\(Date.now).heic")
         
         try data.write(to: fileUrl)
         
@@ -35,6 +35,6 @@ class FSService {
         
         let heicFiles = allFiles.filter { $0.pathExtension.lowercased() == "heic" }
         
-        return heicFiles
+        return heicFiles.sorted(by: {$0.lastPathComponent < $1.lastPathComponent})
     }
 }
