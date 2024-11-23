@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "Camera_Module_App_Icon.jpeg",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"

@@ -9,52 +9,40 @@ import UIKit
 import AVFoundation
 
 extension CameraViewController {
-    var isAuthorized: Bool {
-        get async {
-            let status = AVCaptureDevice.authorizationStatus(for: .video)
-            
-            var isAuthorized = status == .authorized
-            
-            if status == .notDetermined {
-                isAuthorized = await AVCaptureDevice.requestAccess(for: .video)
-            }
-            
-            return isAuthorized
-        }
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         Task {
-            await setUpCaptureSession()
-
+            await setupCaptureSession()
+            
             DispatchQueue.main.async {
                 let cameraPreview = self.cameraPreview as! PreviewView
                 cameraPreview.videoPreviewLayer.session = self.captureSession
             }
             
-            DispatchQueue.global(qos: .background).async {
-                self.captureSession.startRunning()
+            DispatchQueue.global(qos: .background).async { [weak self] in
+                self?.captureSession.startRunning()
+                print("Started running")
             }
         }
     }
 
-
-    func setUpCaptureSession() async {
-        guard await isAuthorized else { return }
+    func setupCaptureSession() async {
+        guard await isAudioAuthorized,
+              await isVideoAuthorized else {
+          return
+      }
         
         self.captureSession.beginConfiguration()
         
         addInputDevices()
-        addOutputDevices()
+        addOutputs()
+        
         
         captureSession.commitConfiguration()
     }
     
     func addInputDevices() {
-        let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera,
-                                                  for: .video, position: .unspecified)
-        let audioDevice = AVCaptureDevice.default(for: .audio)
-        
         if
             let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!),
             captureSession.canAddInput(videoDeviceInput) {
@@ -67,15 +55,28 @@ extension CameraViewController {
         }
     }
     
-    func addOutputDevices() {
-        let photoOutput = AVCapturePhotoOutput()
+    func addOutputs() {
         guard captureSession.canAddOutput(photoOutput) else { return }
         captureSession.sessionPreset = .photo
         captureSession.addOutput(photoOutput)
         
-        let videoOutput = AVCaptureMovieFileOutput()
         guard captureSession.canAddOutput(videoOutput) else { return }
         captureSession.sessionPreset = .high
         captureSession.addOutput(videoOutput)
+    }
+    
+    func capturePhoto() {
+        let photoSettings: AVCapturePhotoSettings
+        
+        if self.photoOutput.availablePhotoCodecTypes.contains(.hevc) {
+            photoSettings = AVCapturePhotoSettings(format:
+                [AVVideoCodecKey: AVVideoCodecType.hevc])
+        } else {
+            photoSettings = AVCapturePhotoSettings()
+        }
+        
+        photoSettings.flashMode = .on
+        
+        photoOutput.capturePhoto(with: photoSettings, delegate: self)
     }
 }

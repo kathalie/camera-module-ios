@@ -8,7 +8,14 @@
 import UIKit
 
 class PhotoGalleryViewCell: UICollectionViewCell {
-    func config() {
+    @IBOutlet weak var imageView: UIImageView!
+    
+    func loadImage(from url: URL) {
         
+        guard let image = UIImage(contentsOfFile: url.path) else {
+            fatalError()
+        }
+        
+        imageView.image = image
     }
 }

@@ -43,6 +43,11 @@ class CameraViewController: UIViewController {
     
     let captureSession = AVCaptureSession()
     
+    let videoDevice = AVCaptureDevice.default(for: .video)
+    let audioDevice = AVCaptureDevice.default(for: .audio)
+    let photoOutput = AVCapturePhotoOutput()
+    let videoOutput = AVCaptureMovieFileOutput()
+    
     @IBOutlet weak var cameraPreview: UIView!
     @IBOutlet weak var captureButton: UIButton!
     @IBOutlet weak var capturingModesSegmentedView: UISegmentedControl!
@@ -65,6 +70,12 @@ class CameraViewController: UIViewController {
             UIView.animate(withDuration: 0.1) {
                 sender.transform = .identity
             }
+        }
+        
+        switch CapturingMode.current {
+        case .photo: capturePhoto()
+            //TODO
+        case .video(let isRecording): return
         }
     }
     
