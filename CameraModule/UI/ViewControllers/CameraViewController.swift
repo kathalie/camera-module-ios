@@ -30,21 +30,19 @@ class CameraViewController: UIViewController {
             }
         }
         
+        var position: Int {
+            switch self {
+            case .photo: return 0
+            case .video: return 1
+            }
+        }
+        
         static var current: CapturingMode = .photo
-    }
-    
-    enum CameraPosition {
-        case front
-        case back
     }
  
     let rectangle = UIView()
-    var cameraPosition: CameraPosition = .back
     
     let captureSession = AVCaptureSession()
-    
-    let videoDevice = AVCaptureDevice.default(for: .video)
-    let audioDevice = AVCaptureDevice.default(for: .audio)
     let photoOutput = AVCapturePhotoOutput()
     let videoOutput = AVCaptureMovieFileOutput()
     
@@ -53,10 +51,30 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var capturingModesSegmentedView: UISegmentedControl!
     
     @IBAction private func changeCameraPosition(_ sender: Any) {
-        switch cameraPosition {
-        case .back: cameraPosition = .front
-        case .front: cameraPosition = .back
+        let currentInput = captureSession.inputs.first(where: {
+            guard let deviceInput = $0 as? AVCaptureDeviceInput else { return false }
+            return deviceInput.device.hasMediaType(.video)
+        }) as! AVCaptureDeviceInput
+        
+        captureSession.beginConfiguration()
+        
+        captureSession.removeInput(currentInput)
+
+        let newPosition: AVCaptureDevice.Position = currentInput.device.position == .back ? .front : .back
+        
+               
+        let newDevice = makeVideoDevice(for: newPosition)
+        
+        do {
+            let newInput = try AVCaptureDeviceInput(device: newDevice)
+            if captureSession.canAddInput(newInput) {
+                captureSession.addInput(newInput)
+            }
+        } catch {
+            print("Failed to create input for new camera: \(error)")
         }
+
+        captureSession.commitConfiguration()
     }
     
     @IBAction private func capture(_ sender: UIButton) {
@@ -94,12 +112,18 @@ class CameraViewController: UIViewController {
         setupUI()
     }
     
+    
     //MARK: initial UI setup
     
     private func initialUiSetup() {
+        initialCapturingModesSetup()
         initialRectangleSetup()
         initialCapturingModesSegmentedViewSetup()
         initialCaptureButonSetup()
+    }
+    
+    private func initialCapturingModesSetup() {
+        capturingModesSegmentedView.selectedSegmentIndex = CapturingMode.current.position
     }
     
     private func initialRectangleSetup() {
@@ -120,8 +144,8 @@ class CameraViewController: UIViewController {
             self?.setupUI()
         }
         
-        capturingModesSegmentedView.setAction(photoAction, forSegmentAt: 0)
-        capturingModesSegmentedView.setAction(videoAction, forSegmentAt: 1)
+        capturingModesSegmentedView.setAction(photoAction, forSegmentAt: CapturingMode.photo.position)
+        capturingModesSegmentedView.setAction(videoAction, forSegmentAt: CapturingMode.video(recording: false).position)
     }
     
     private func initialCaptureButonSetup() {

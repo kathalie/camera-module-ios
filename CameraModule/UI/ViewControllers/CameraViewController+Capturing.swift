@@ -26,6 +26,19 @@ extension CameraViewController {
             }
         }
     }
+    
+    func makeVideoDevice(for position: AVCaptureDevice.Position) -> AVCaptureDevice {
+        if let device = AVCaptureDevice.default(.builtInDualCamera,
+                                                for: .video, position: position) {
+            return device
+        } else if let device = AVCaptureDevice.default(.builtInWideAngleCamera,
+                                                       for: .video, position: position) {
+            return device
+        } else {
+            fatalError("Missing expected back camera device.")
+        }
+
+    }
 
     func setupCaptureSession() async {
         guard await isAudioAuthorized,
@@ -43,8 +56,10 @@ extension CameraViewController {
     }
     
     func addInputDevices() {
+        let videoDevice = makeVideoDevice(for: .back)
+        let audioDevice = AVCaptureDevice.default(for: .audio)
         if
-            let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!),
+            let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
             captureSession.canAddInput(videoDeviceInput) {
             captureSession.addInput(videoDeviceInput)
         }
@@ -74,8 +89,6 @@ extension CameraViewController {
         } else {
             photoSettings = AVCapturePhotoSettings()
         }
-        
-        photoSettings.flashMode = .on
         
         photoOutput.capturePhoto(with: photoSettings, delegate: self)
     }
