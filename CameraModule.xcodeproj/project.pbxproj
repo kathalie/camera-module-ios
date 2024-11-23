@@ -23,6 +23,7 @@
 		8C4124A52CF108ED000F61DB /* ViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124A42CF108EC000F61DB /* ViewController+Alerts.swift */; };
 		8C4124A82CF11A3C000F61DB /* CameraViewController+Authorisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124A72CF11A3C000F61DB /* CameraViewController+Authorisation.swift */; };
 		8C4124AA2CF12EDD000F61DB /* FSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124A92CF12EDD000F61DB /* FSService.swift */; };
+		8C75B0562CF168C400185AE5 /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75B0552CF168C400185AE5 /* PhotoPreviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		8C4124A42CF108EC000F61DB /* ViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Alerts.swift"; sourceTree = "<group>"; };
 		8C4124A72CF11A3C000F61DB /* CameraViewController+Authorisation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+Authorisation.swift"; sourceTree = "<group>"; };
 		8C4124A92CF12EDD000F61DB /* FSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSService.swift; sourceTree = "<group>"; };
+		8C75B0552CF168C400185AE5 /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				8C4124A72CF11A3C000F61DB /* CameraViewController+Authorisation.swift */,
 				8C4124A22CF105BA000F61DB /* CameraViewController+AVCapturePhotoCaptureDelegate.swift */,
 				8C4124A42CF108EC000F61DB /* ViewController+Alerts.swift */,
+				8C75B0552CF168C400185AE5 /* PhotoPreviewViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C75B0562CF168C400185AE5 /* PhotoPreviewViewController.swift in Sources */,
 				8C4124A32CF105BA000F61DB /* CameraViewController+AVCapturePhotoCaptureDelegate.swift in Sources */,
 				8C4124AA2CF12EDD000F61DB /* FSService.swift in Sources */,
 				8C41247D2CEFEE1F000F61DB /* ViewController.swift in Sources */,
@@ -369,6 +373,7 @@
 				INFOPLIST_FILE = CameraModule/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Required to capture photos and record video content";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Required to record video content";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app allows saving media to the library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -399,6 +404,7 @@
 				INFOPLIST_FILE = CameraModule/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Required to capture photos and record video content";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Required to record video content";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app allows saving media to the library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

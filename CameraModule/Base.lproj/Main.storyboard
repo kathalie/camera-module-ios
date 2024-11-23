@@ -9,22 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CameraModule" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="bJe-x9-kce"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2355" y="-397"/>
-        </scene>
         <!--Gallery-->
         <scene sceneID="VsW-hD-s81">
             <objects>
@@ -73,7 +57,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Gallery" id="Aq1-DP-4qh">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="wSb-m0-9cT">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="I7q-Fn-JtA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="I7q-Fn-JtA">
                                 <rect key="frame" x="16" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
@@ -89,7 +73,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" id="YGv-t1-HlW"/>
+                        <segue destination="JNu-Wz-MZU" kind="show" identifier="go_to_photo_preview" id="w6v-pV-vA5"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8M-tw-efh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -209,15 +193,59 @@
             </objects>
             <point key="canvasLocation" x="678.62595419847321" y="-73.239436619718319"/>
         </scene>
+        <!--Photo Preview View Controller-->
+        <scene sceneID="tAo-h2-Yf7">
+            <objects>
+                <viewController id="JNu-Wz-MZU" customClass="PhotoPreviewViewController" customModule="CameraModule" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="68Q-hF-g8g">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3hk-ix-FHB">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AUd-el-wCG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3hk-ix-FHB" firstAttribute="leading" secondItem="AUd-el-wCG" secondAttribute="leading" id="1hL-Yo-yA2"/>
+                            <constraint firstItem="AUd-el-wCG" firstAttribute="bottom" secondItem="3hk-ix-FHB" secondAttribute="bottom" id="BLv-OF-r8x"/>
+                            <constraint firstItem="AUd-el-wCG" firstAttribute="trailing" secondItem="3hk-ix-FHB" secondAttribute="trailing" id="Xwm-sf-24C"/>
+                            <constraint firstItem="3hk-ix-FHB" firstAttribute="top" secondItem="AUd-el-wCG" secondAttribute="top" id="rgv-pq-Hgp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="uf2-4D-z11">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="ago-O4-cZ3">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="jiu-kq-L1o">
+                                <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.down" catalog="system"/>
+                                <connections>
+                                    <action selector="saveToGallery:" destination="JNu-Wz-MZU" eventType="touchUpInside" id="8FI-z7-TwM"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="3hk-ix-FHB" id="Mnk-0u-gbN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E3Z-My-OXP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2358" y="-432"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.triangle.2.circlepath.camera" catalog="system" width="128" height="93"/>
         <image name="camera" catalog="system" width="128" height="93"/>
+        <image name="square.and.arrow.down" catalog="system" width="112" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

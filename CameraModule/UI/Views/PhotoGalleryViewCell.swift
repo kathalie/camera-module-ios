@@ -11,7 +11,6 @@ class PhotoGalleryViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
     func loadImage(from url: URL) {
-        
         guard let image = UIImage(contentsOfFile: url.path) else {
             fatalError()
         }

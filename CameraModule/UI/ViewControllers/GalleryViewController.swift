@@ -13,6 +13,7 @@ class GalleryViewController: UICollectionViewController {
         static let photoCellReuseIdentifier = "photo_cell"
         static let videoCellReuseIdentifier = "video_cell"
         static let goToCameraViewSegue = "go_to_camera_view"
+        static let goToPhotoPreviewSegue = "go_to_photo_preview"
     }
     
     struct NotificationName {
@@ -50,7 +51,7 @@ class GalleryViewController: UICollectionViewController {
         } catch {
             print(error.localizedDescription)
             
-            showErrorAlert(title: "Failed to load gallery", message: "")
+            showAlert(title: "Failed to load gallery", message: "")
         }
     }
     
@@ -74,6 +75,25 @@ class GalleryViewController: UICollectionViewController {
         cell.loadImage(from: imageURL)
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            let imageUrl = filePaths[.photos]![indexPath.row]
+            
+            performSegue(withIdentifier: Const.goToPhotoPreviewSegue, sender: imageUrl)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case Const.goToPhotoPreviewSegue:
+            let photoPreviewVC = segue.destination as! PhotoPreviewViewController
+            let imageUrl = sender as! URL
+            
+            photoPreviewVC.config(imageUrl: imageUrl)
+        default: break
+        }
     }
     
     deinit {

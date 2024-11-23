@@ -21,7 +21,6 @@ class FSService {
     
     func saveImage(_ data: Data) throws {
         let fileUrl = getDocumentsDirectory()
-//            .appendingPathComponent(photoDirectory)
             .appendingPathComponent("IMG\(UUID().uuidString).heic")
         
         try data.write(to: fileUrl)
@@ -31,7 +30,6 @@ class FSService {
     
     func getSavedPhotos() throws -> [URL]  {
         let documentsDirectory = getDocumentsDirectory()
-//            .appendingPathComponent(photoDirectory)
         
         let allFiles = try FileManager.default.contentsOfDirectory(at: documentsDirectory, includingPropertiesForKeys: nil)
         
