@@ -19,7 +19,7 @@ class PhotoPreviewViewController: UIViewController {
         }
         
         Task {
-            await LibraryManager(delegate: self).saveToLibrary(imageUrl)
+            await LibraryManager(delegate: self).saveToLibrary(imageUrl, content: .photo)
          }
     }
     

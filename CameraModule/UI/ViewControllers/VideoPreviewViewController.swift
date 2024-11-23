@@ -12,13 +12,13 @@ class VideoPreviewViewController: AVPlayerViewController {
     var videoUrls: [URL]?
     var currentIndex: Int = 0
     
-    @IBAction func saveToGallerya(_ sender: Any) {
+    @IBAction func saveToGallery(_ sender: Any) {
         guard let videoUrls else {
             return
         }
         
         Task {
-            await LibraryManager(delegate: self).saveToLibrary(videoUrls[currentIndex])
+            await LibraryManager(delegate: self).saveToLibrary(videoUrls[currentIndex], content: .video)
          }
     }
     
@@ -68,3 +68,4 @@ class VideoPreviewViewController: AVPlayerViewController {
         }
     }
 }
+    

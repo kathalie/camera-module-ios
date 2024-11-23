@@ -15,15 +15,28 @@ class LibraryManager {
         self.delegate = delegate
     }
     
-    func saveToLibrary(_ url: URL) async {
+    enum Content {
+        case photo
+        case video
+    }
+    
+    func saveToLibrary(_ url: URL, content: Content) async {
         guard await isPhotoLibraryReadWriteAccessGranted else {
             await delegate.showAlert(title: "Permission Denied", message: "Unable to access the photo library.")
             return
         }
         
         PHPhotoLibrary.shared().performChanges({
-            let creationRequest = PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url)
-            creationRequest?.creationDate = Date()
+            print(url)
+            switch content {
+            case .photo:
+                let creationRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: url)
+                creationRequest?.creationDate = Date()
+            case .video:
+                let creationRequest = PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url)
+                creationRequest?.creationDate = Date()
+            }
+            
         }) { [weak self] success, error in
             DispatchQueue.main.async {
                 if success {
