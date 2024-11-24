@@ -100,7 +100,8 @@ extension CameraViewController {
     }
     
     func captureVideo() {
-        guard captureSession.isRunning
+        guard captureSession.isRunning,
+              !videoOutput.isRecording
         else { return }
         
         let path = StorageManager.shared.getDocumentsDirectory()
@@ -111,6 +112,10 @@ extension CameraViewController {
     }
     
     func stopVideo() {
+        guard captureSession.isRunning,
+              videoOutput.isRecording
+        else { return }
+        
         videoOutput.stopRecording()
     }
 }

@@ -9,6 +9,8 @@ import AVFoundation
 
 extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
     func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
+        print("Recording finished!!!")
+        
         if let error = error {
             showAlert(title: "Error", message: "Failed to record a video")
             print("Recording failed with error: \(error)")
@@ -17,5 +19,9 @@ extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
         }
         
         NotificationCenter.default.post(name: GalleryViewController.NotificationName.needGalleryUpdate, object: nil)
+    }
+    
+    func fileOutput(_ output: AVCaptureFileOutput, didStartRecordingTo fileURL: URL, from connections: [AVCaptureConnection]) {
+        print("recording started")
     }
 }

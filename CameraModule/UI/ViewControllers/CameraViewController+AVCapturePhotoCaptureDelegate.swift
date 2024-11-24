@@ -9,7 +9,6 @@ import UIKit
 import AVFoundation
 
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
-    
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         print("didFinidhProcessingPhoto")
         guard error == nil else {

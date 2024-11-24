@@ -14,7 +14,7 @@ class CameraViewController: UIViewController {
         static let captureModeReuseIdentifier = "capture_mode"
         static let colorPhotoModeBorder: UIColor = UIColor.gray
         static let colorPhotoModeBackground: UIColor? = nil
-        static let colorVideoModeBorder: UIColor = UIColor.systemPink
+        static let colorVideoModeBorder: UIColor = UIColor.white
         static let colorVideoModeBackground: UIColor = UIColor.red
         static let captureBorderWidth = CGFloat(6)
     }
