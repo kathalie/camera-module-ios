@@ -15,16 +15,23 @@ extension CameraViewController {
         Task {
             await setupCaptureSession()
             
-            DispatchQueue.main.async {
-                let cameraPreview = self.cameraPreview as! PreviewView
-                cameraPreview.videoPreviewLayer.session = self.captureSession
-            }
-            
             DispatchQueue.global(qos: .background).async { [weak self] in
+                self?.captureSession.commitConfiguration()
                 self?.captureSession.startRunning()
                 print("Started running")
+                
+                DispatchQueue.main.async { [weak self] in
+                    self?.enableUI()
+                }
             }
         }
+    }
+    
+    func enableUI() {
+        captureButton.isHidden = false
+        changeCameraPositionButton.isHidden = false
+        capturingModesSegmentedView.isHidden = false
+        cameraPreview.isHidden = false
     }
     
     func makeVideoDevice(for position: AVCaptureDevice.Position) -> AVCaptureDevice {
@@ -50,7 +57,6 @@ extension CameraViewController {
         
         addInputDevices()
         addOutputs()
-        
         
         captureSession.commitConfiguration()
     }

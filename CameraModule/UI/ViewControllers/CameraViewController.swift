@@ -46,9 +46,10 @@ class CameraViewController: UIViewController {
     let photoOutput = AVCapturePhotoOutput()
     let videoOutput = AVCaptureMovieFileOutput()
     
-    @IBOutlet weak var cameraPreview: UIView!
-    @IBOutlet weak var captureButton: UIButton!
-    @IBOutlet weak var capturingModesSegmentedView: UISegmentedControl!
+    @IBOutlet internal weak var cameraPreview: UIView!
+    @IBOutlet internal weak var captureButton: UIButton!
+    @IBOutlet internal weak var changeCameraPositionButton: UIButton!
+    @IBOutlet internal weak var capturingModesSegmentedView: UISegmentedControl!
     
     @IBAction private func changeCameraPosition(_ sender: Any) {
         let currentInput = captureSession.inputs.first(where: {
@@ -120,9 +121,23 @@ class CameraViewController: UIViewController {
     //MARK: initial UI setup
     
     private func initialUiSetup() {
+        disableUI()
+        initPreview()
         initialRectangleSetup()
         initialCapturingModesSegmentedViewSetup()
         initialCaptureButonSetup()
+    }
+    
+    func disableUI() {
+        captureButton.isHidden = true
+        changeCameraPositionButton.isHidden = true
+        capturingModesSegmentedView.isHidden = true
+        cameraPreview.isHidden = true
+    }
+    
+    private func initPreview() {
+        let cameraPreview = cameraPreview as! PreviewView
+        cameraPreview.videoPreviewLayer.session = captureSession
     }
     
     private func initialRectangleSetup() {

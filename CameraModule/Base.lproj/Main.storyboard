@@ -233,6 +233,7 @@
                         <outlet property="cameraPreview" destination="oJz-0p-KAW" id="eHH-LV-lCe"/>
                         <outlet property="captureButton" destination="rrc-mf-Lrj" id="yBT-wr-MuR"/>
                         <outlet property="capturingModesSegmentedView" destination="oJY-jT-DUC" id="l2x-wG-xIx"/>
+                        <outlet property="changeCameraPositionButton" destination="chW-9q-7Yt" id="fCq-hD-Js0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GXB-EH-m1y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
