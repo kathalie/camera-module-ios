@@ -33,4 +33,21 @@ extension UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func showAlert(title: String, message: String, shouldShowGoToSettingsButton: Bool = false) {
+        DispatchQueue.main.async { [weak self] in
+            let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertViewController.addAction(UIAlertAction(title: "OK", style: .default))
+
+            if shouldShowGoToSettingsButton {
+                let goToSettingsAction = UIAlertAction(title: "Go to Settings", style: .default) { _ in
+                    guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+                    UIApplication.shared.open(url, options: [:])
+                }
+                alertViewController.addAction(goToSettingsAction)
+            }
+
+            self?.present(alertViewController, animated: true)
+        }
+    }
 }

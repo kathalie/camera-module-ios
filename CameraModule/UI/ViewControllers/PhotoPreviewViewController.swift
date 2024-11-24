@@ -19,7 +19,16 @@ class PhotoPreviewViewController: UIViewController {
         }
         
         Task {
-            await LibraryManager(delegate: self).saveToLibrary(imageUrl, content: .photo)
+            let success = await LibraryManager().saveToLibrary(imageUrl, content: .photo)
+            
+            switch success {
+            case true:
+                showAlert(title: "Done", message: "File was saved to the library.")
+            case false:
+                showAlert(title: "Error", message: "Failed to save the file to the library.")
+            default:
+                showAlert(title: "No permission to access the photo library", message: "Please, enable access to the library to save the file.", shouldShowGoToSettingsButton: true)
+            }
          }
     }
     
@@ -37,6 +46,4 @@ class PhotoPreviewViewController: UIViewController {
         
         imageView.image = image
     }
-    
-
 }

@@ -9,43 +9,34 @@ import UIKit
 import Photos
 
 class LibraryManager {
-    let delegate: UIViewController
-    
-    init(delegate: UIViewController) {
-        self.delegate = delegate
-    }
-    
     enum Content {
         case photo
         case video
     }
     
-    func saveToLibrary(_ url: URL, content: Content) async {
-        guard await isPhotoLibraryReadWriteAccessGranted else {
-            await delegate.showAlert(title: "Permission Denied", message: "Unable to access the photo library.")
-            return
+    func saveToLibrary(_ url: URL, content: Content) async -> Bool? {
+        guard await isPhotoLibraryReadWriteAccessGranted else {            
+            return nil
         }
         
-        PHPhotoLibrary.shared().performChanges({
-            print(url)
-            switch content {
-            case .photo:
-                let creationRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: url)
-                creationRequest?.creationDate = Date()
-            case .video:
-                let creationRequest = PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url)
-                creationRequest?.creationDate = Date()
-            }
-            
-        }) { [weak self] success, error in
-            DispatchQueue.main.async {
-                if success {
-                    self?.delegate.showAlert(title: "Success", message: "Saved to gallery.")
-                } else {
-                    print(error?.localizedDescription ?? "")
-                    self?.delegate.showAlert(title: "Error", message: "Failed to save to the gallery.")
+        do {
+            try await PHPhotoLibrary.shared().performChanges {
+                print(url)
+                switch content {
+                case .photo:
+                    let creationRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: url)
+                    creationRequest?.creationDate = Date()
+                case .video:
+                    let creationRequest = PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: url)
+                    creationRequest?.creationDate = Date()
                 }
             }
+            
+            return true
+        } catch {
+            print(error.localizedDescription)
+            
+            return false
         }
     }
 

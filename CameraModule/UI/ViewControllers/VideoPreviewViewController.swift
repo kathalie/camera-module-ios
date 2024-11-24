@@ -13,7 +13,6 @@ class VideoPreviewViewController: UIViewController {
     private var currentIndex: Int = 0
     
     private var player: AVPlayer?
-//    private var playerLayer: AVPlayerLayer?
     private var playerViewController: AVPlayerViewController?
     
     @IBOutlet weak var videoPlayerView: UIView!
@@ -25,7 +24,16 @@ class VideoPreviewViewController: UIViewController {
         }
         
         Task {
-            await LibraryManager(delegate: self).saveToLibrary(videoUrls[currentIndex], content: .video)
+            let success = await LibraryManager().saveToLibrary(videoUrls[currentIndex], content: .video)
+            
+            switch success {
+            case true: 
+                showAlert(title: "Done", message: "File was saved to the library.")
+            case false:
+                showAlert(title: "Error", message: "Failed to save the file to the library.")
+            default:
+                showAlert(title: "No permission to access the photo library", message: "Please, enable access to the library to save the file.", shouldShowGoToSettingsButton: true)
+            }
          }
     }
     
