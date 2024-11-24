@@ -10,12 +10,16 @@ import UIKit
 
 class GalleryViewController: UICollectionViewController {
     struct Const {
-        static let photoCellReuseIdentifier = "photo_cell"
-        static let videoCellReuseIdentifier = "video_cell"
-        static let sectionHeaderReuseIdentifier = "section_header"
-        static let goToCameraViewSegue = "go_to_camera_view"
-        static let goToPhotoPreviewSegue = "go_to_photo_preview"
-        static let goToVideoPreviewSegue = "go_to_video_preview"
+        struct ReuseIdentifiers {
+            static let photoCell = "photo_cell"
+            static let videoCell = "video_cell"
+            static let sectionHeader = "section_header"
+        }
+        struct Segue {
+            static let cameraView = "go_to_camera_view"
+            static let photoPreview = "go_to_photo_preview"
+            static let videoPreview = "go_to_video_preview"
+        }
     }
     
     struct NotificationName {
@@ -71,7 +75,7 @@ class GalleryViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Const.photoCellReuseIdentifier, for: indexPath) as! PhotoGalleryViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Const.ReuseIdentifiers.photoCell, for: indexPath) as! PhotoGalleryViewCell
             
             let imageURL = filePaths[.photos]![indexPath.row]
             
@@ -85,7 +89,7 @@ class GalleryViewController: UICollectionViewController {
             
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Const.videoCellReuseIdentifier, for: indexPath) as! VideoGalleryViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Const.ReuseIdentifiers.videoCell, for: indexPath) as! VideoGalleryViewCell
             
             let videoUrl = filePaths[.videos]![indexPath.row]
             
@@ -105,15 +109,15 @@ class GalleryViewController: UICollectionViewController {
         if indexPath.section == 0 {
             let imageUrl = filePaths[.photos]![indexPath.row]
             
-            performSegue(withIdentifier: Const.goToPhotoPreviewSegue, sender: imageUrl)
+            performSegue(withIdentifier: Const.Segue.photoPreview, sender: imageUrl)
         } else if indexPath.section == 1 {
-            performSegue(withIdentifier: Const.goToVideoPreviewSegue, sender: indexPath.row)
+            performSegue(withIdentifier: Const.Segue.videoPreview, sender: indexPath.row)
         }
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Const.sectionHeaderReuseIdentifier, for: indexPath) as! SectionHeader
+        let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Const.ReuseIdentifiers.sectionHeader, for: indexPath) as! SectionHeader
         
         sectionHeader.config(caption: Section.allCases[indexPath.section].rawValue)
         
@@ -122,12 +126,12 @@ class GalleryViewController: UICollectionViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case Const.goToPhotoPreviewSegue:
+        case Const.Segue.photoPreview:
             let photoPreviewVC = segue.destination as! PhotoPreviewViewController
             let imageUrl = sender as! URL
             
             photoPreviewVC.config(imageUrl: imageUrl)
-        case Const.goToVideoPreviewSegue:
+        case Const.Segue.videoPreview:
             let videoPreviewVC = segue.destination as! VideoPreviewViewController
             let currentIndex = sender as! Int
             

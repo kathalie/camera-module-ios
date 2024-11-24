@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C382E6D2CF17E670099B5BD /* VideoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C382E6C2CF17E670099B5BD /* VideoPreviewViewController.swift */; };
 		8C382E6F2CF180470099B5BD /* LibraryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C382E6E2CF180470099B5BD /* LibraryManager.swift */; };
 		8C4124792CEFEE1F000F61DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124782CEFEE1F000F61DB /* AppDelegate.swift */; };
 		8C41247B2CEFEE1F000F61DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41247A2CEFEE1F000F61DB /* SceneDelegate.swift */; };
@@ -19,7 +18,7 @@
 		8C4124902CF0A7FF000F61DB /* PhotoGalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41248F2CF0A7FF000F61DB /* PhotoGalleryViewCell.swift */; };
 		8C4124922CF0B23D000F61DB /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124912CF0B23D000F61DB /* CameraViewController.swift */; };
 		8C4124982CF0F1F5000F61DB /* VideoGalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124972CF0F1F5000F61DB /* VideoGalleryViewCell.swift */; };
-		8C41249A2CF0F3AB000F61DB /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124992CF0F3AB000F61DB /* PreviewView.swift */; };
+		8C41249A2CF0F3AB000F61DB /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124992CF0F3AB000F61DB /* CameraPreviewView.swift */; };
 		8C41249E2CF0F5A9000F61DB /* CameraViewController+Capturing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C41249D2CF0F5A9000F61DB /* CameraViewController+Capturing.swift */; };
 		8C4124A32CF105BA000F61DB /* CameraViewController+AVCapturePhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124A22CF105BA000F61DB /* CameraViewController+AVCapturePhotoCaptureDelegate.swift */; };
 		8C4124A52CF108ED000F61DB /* ViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124A42CF108EC000F61DB /* ViewController+Alerts.swift */; };
@@ -27,12 +26,12 @@
 		8C4124AA2CF12EDD000F61DB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124A92CF12EDD000F61DB /* StorageManager.swift */; };
 		8C75B0562CF168C400185AE5 /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75B0552CF168C400185AE5 /* PhotoPreviewViewController.swift */; };
 		8C75B0582CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75B0572CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift */; };
+		8C77F2C22CF3B4410016EFA2 /* VideoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C77F2C12CF3B4410016EFA2 /* VideoPreviewViewController.swift */; };
 		8CAF0B162CF38EAF009E1F29 /* AnimationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAF0B152CF38EAF009E1F29 /* AnimationProvider.swift */; };
 		8CAF0B1A2CF39AD6009E1F29 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAF0B192CF39AD6009E1F29 /* SectionHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8C382E6C2CF17E670099B5BD /* VideoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreviewViewController.swift; sourceTree = "<group>"; };
 		8C382E6E2CF180470099B5BD /* LibraryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryManager.swift; sourceTree = "<group>"; };
 		8C4124752CEFEE1F000F61DB /* CameraModule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CameraModule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4124782CEFEE1F000F61DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +45,7 @@
 		8C41248F2CF0A7FF000F61DB /* PhotoGalleryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGalleryViewCell.swift; sourceTree = "<group>"; };
 		8C4124912CF0B23D000F61DB /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		8C4124972CF0F1F5000F61DB /* VideoGalleryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoGalleryViewCell.swift; sourceTree = "<group>"; };
-		8C4124992CF0F3AB000F61DB /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		8C4124992CF0F3AB000F61DB /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 		8C41249D2CF0F5A9000F61DB /* CameraViewController+Capturing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+Capturing.swift"; sourceTree = "<group>"; };
 		8C4124A22CF105BA000F61DB /* CameraViewController+AVCapturePhotoCaptureDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+AVCapturePhotoCaptureDelegate.swift"; sourceTree = "<group>"; };
 		8C4124A42CF108EC000F61DB /* ViewController+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Alerts.swift"; sourceTree = "<group>"; };
@@ -54,6 +53,7 @@
 		8C4124A92CF12EDD000F61DB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		8C75B0552CF168C400185AE5 /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
 		8C75B0572CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+RecordingDelegate.swift"; sourceTree = "<group>"; };
+		8C77F2C12CF3B4410016EFA2 /* VideoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreviewViewController.swift; sourceTree = "<group>"; };
 		8CAF0B152CF38EAF009E1F29 /* AnimationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationProvider.swift; sourceTree = "<group>"; };
 		8CAF0B192CF39AD6009E1F29 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,7 +116,7 @@
 			children = (
 				8C41248F2CF0A7FF000F61DB /* PhotoGalleryViewCell.swift */,
 				8C4124972CF0F1F5000F61DB /* VideoGalleryViewCell.swift */,
-				8C4124992CF0F3AB000F61DB /* PreviewView.swift */,
+				8C4124992CF0F3AB000F61DB /* CameraPreviewView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -132,7 +132,7 @@
 				8C75B0572CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift */,
 				8C4124A42CF108EC000F61DB /* ViewController+Alerts.swift */,
 				8C75B0552CF168C400185AE5 /* PhotoPreviewViewController.swift */,
-				8C382E6C2CF17E670099B5BD /* VideoPreviewViewController.swift */,
+				8C77F2C12CF3B4410016EFA2 /* VideoPreviewViewController.swift */,
 				8CAF0B192CF39AD6009E1F29 /* SectionHeader.swift */,
 			);
 			path = ViewControllers;
@@ -229,13 +229,13 @@
 				8C75B0562CF168C400185AE5 /* PhotoPreviewViewController.swift in Sources */,
 				8C4124A32CF105BA000F61DB /* CameraViewController+AVCapturePhotoCaptureDelegate.swift in Sources */,
 				8C4124AA2CF12EDD000F61DB /* StorageManager.swift in Sources */,
+				8C77F2C22CF3B4410016EFA2 /* VideoPreviewViewController.swift in Sources */,
 				8C41247D2CEFEE1F000F61DB /* ViewController.swift in Sources */,
 				8C4124A52CF108ED000F61DB /* ViewController+Alerts.swift in Sources */,
 				8C75B0582CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift in Sources */,
 				8C382E6F2CF180470099B5BD /* LibraryManager.swift in Sources */,
 				8CAF0B1A2CF39AD6009E1F29 /* SectionHeader.swift in Sources */,
-				8C382E6D2CF17E670099B5BD /* VideoPreviewViewController.swift in Sources */,
-				8C41249A2CF0F3AB000F61DB /* PreviewView.swift in Sources */,
+				8C41249A2CF0F3AB000F61DB /* CameraPreviewView.swift in Sources */,
 				8C4124922CF0B23D000F61DB /* CameraViewController.swift in Sources */,
 				8C4124902CF0A7FF000F61DB /* PhotoGalleryViewCell.swift in Sources */,
 				8C41249E2CF0F5A9000F61DB /* CameraViewController+Capturing.swift in Sources */,

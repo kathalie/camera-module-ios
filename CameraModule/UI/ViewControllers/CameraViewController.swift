@@ -136,7 +136,7 @@ class CameraViewController: UIViewController {
     }
     
     private func initPreview() {
-        let cameraPreview = cameraPreview as! PreviewView
+        let cameraPreview = cameraPreview as! CameraPreviewView
         cameraPreview.videoPreviewLayer.session = captureSession
     }
     

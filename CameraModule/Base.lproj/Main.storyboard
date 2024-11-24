@@ -114,35 +114,80 @@
                     </navigationItem>
                     <connections>
                         <segue destination="JNu-Wz-MZU" kind="show" identifier="go_to_photo_preview" id="w6v-pV-vA5"/>
-                        <segue destination="hys-Qj-OLy" kind="show" identifier="go_to_video_preview" id="3My-7d-boA"/>
+                        <segue destination="7IN-Uj-TJQ" kind="show" identifier="go_to_video_preview" id="pfe-Sc-cV0"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8M-tw-efh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1574.8091603053435" y="-73.239436619718319"/>
         </scene>
-        <!--AV Player View Controller-->
-        <scene sceneID="7GM-5p-QMb">
+        <!--Video Preview View Controller-->
+        <scene sceneID="dz8-ZM-Vx0">
             <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="hys-Qj-OLy" customClass="VideoPreviewViewController" customModule="CameraModule" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="2A6-GS-HEK">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="S7X-WL-3sJ">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Kd5-bh-0lT">
+                <viewController id="7IN-Uj-TJQ" customClass="VideoPreviewViewController" customModule="CameraModule" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vea-65-whu">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6RL-gl-AM3">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoW-O5-G2U">
+                                <rect key="frame" x="32" y="443" width="50" height="35"/>
+                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.left.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="goToPreviousVideo:" destination="7IN-Uj-TJQ" eventType="touchUpInside" id="0zW-6C-rAy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkY-1d-qIW">
+                                <rect key="frame" x="311" y="443" width="50" height="35"/>
+                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrowshape.right.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="goToNextVideo:" destination="7IN-Uj-TJQ" eventType="touchUpInside" id="ozF-QJ-YlY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GXz-h2-oGd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6RL-gl-AM3" firstAttribute="leading" secondItem="GXz-h2-oGd" secondAttribute="leading" id="2yO-cW-o56"/>
+                            <constraint firstItem="GXz-h2-oGd" firstAttribute="trailing" secondItem="fkY-1d-qIW" secondAttribute="trailing" constant="32" id="4s7-lk-X4c"/>
+                            <constraint firstItem="fkY-1d-qIW" firstAttribute="centerY" secondItem="6RL-gl-AM3" secondAttribute="centerY" id="VLM-mR-cph"/>
+                            <constraint firstItem="GXz-h2-oGd" firstAttribute="trailing" secondItem="6RL-gl-AM3" secondAttribute="trailing" id="WKS-SM-kDW"/>
+                            <constraint firstItem="6RL-gl-AM3" firstAttribute="top" secondItem="GXz-h2-oGd" secondAttribute="top" id="dGh-jo-iqV"/>
+                            <constraint firstItem="uoW-O5-G2U" firstAttribute="centerY" secondItem="6RL-gl-AM3" secondAttribute="centerY" id="dx1-vZ-DvD"/>
+                            <constraint firstItem="uoW-O5-G2U" firstAttribute="leading" secondItem="GXz-h2-oGd" secondAttribute="leading" constant="32" id="lJ5-ns-LU1"/>
+                            <constraint firstItem="GXz-h2-oGd" firstAttribute="bottom" secondItem="6RL-gl-AM3" secondAttribute="bottom" id="v3y-Ys-Qzm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OSP-AF-ebi">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="mBh-en-Pll">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="6tE-W8-Av2">
                                 <rect key="frame" x="290" y="5" width="87" height="34.333333333333336"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemPinkColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.down" catalog="system"/>
                                 <connections>
-                                    <action selector="saveToGallery:" destination="hys-Qj-OLy" eventType="touchUpInside" id="Ahx-GX-73K"/>
+                                    <action selector="saveToGallery:" destination="7IN-Uj-TJQ" eventType="touchUpInside" id="xQz-PZ-5fB"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                </avPlayerViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cQY-eb-7aJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <outlet property="nextButton" destination="fkY-1d-qIW" id="g36-iE-1PE"/>
+                        <outlet property="previousButton" destination="uoW-O5-G2U" id="zk7-ot-ewi"/>
+                        <outlet property="videoPlayerView" destination="6RL-gl-AM3" id="MAz-p5-cdf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E9U-6I-V0G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2356" y="245"/>
+            <point key="canvasLocation" x="2356" y="231"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="rWj-k4-jT1">
@@ -152,7 +197,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJz-0p-KAW" customClass="PreviewView" customModule="CameraModule" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJz-0p-KAW" customClass="CameraPreviewView" customModule="CameraModule" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -304,16 +349,18 @@
     </scenes>
     <resources>
         <image name="arrow.triangle.2.circlepath.camera" catalog="system" width="128" height="93"/>
+        <image name="arrowshape.left.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="arrowshape.right.circle.fill" catalog="system" width="128" height="123"/>
         <image name="camera" catalog="system" width="128" height="93"/>
         <image name="square.and.arrow.down" catalog="system" width="112" height="128"/>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
