@@ -41,7 +41,7 @@ class GalleryViewController: UICollectionViewController {
             object: nil
         )
         
-        loadGallery()
+        NotificationCenter.default.post(name: GalleryViewController.NotificationName.needGalleryUpdate, object: nil)
     }
     
     @objc
@@ -74,7 +74,13 @@ class GalleryViewController: UICollectionViewController {
             
             let imageURL = filePaths[.photos]![indexPath.row]
             
-            cell.loadImage(from: imageURL)
+            cell.config(url: imageURL) { [weak self] confirmationAction in
+                self?.showAlert(
+                    title: "Do you want to delete this file?",
+                    message: "File deletion cannot be undone",
+                    confirmAction: confirmationAction
+                )
+            }
             
             return cell
         } else {
@@ -82,7 +88,13 @@ class GalleryViewController: UICollectionViewController {
             
             let videoUrl = filePaths[.videos]![indexPath.row]
             
-            cell.config(videoUrl)
+            cell.config(url: videoUrl) { [weak self] confirmationAction in
+                self?.showAlert(
+                    title: "Do you want to delete this file?",
+                    message: "File deletion cannot be undone",
+                    confirmAction: confirmationAction
+                )
+            }
             
             return cell
         }

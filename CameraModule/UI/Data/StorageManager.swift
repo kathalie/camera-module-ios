@@ -29,23 +29,41 @@ class StorageManager {
         print("Image saved to: \(fileUrl)")
     }
     
+    @discardableResult
+    func removeFile(at fileUrl: URL) -> Bool {
+        if FileManager.default.fileExists(atPath: fileUrl.path) {
+            do {
+                try FileManager.default.removeItem(at: fileUrl)
+                print("File successfully deleted.")
+                
+                return true
+            } catch {
+                print("Error deleting file: \(error.localizedDescription)")
+            }
+        } else {
+            print("File does not exist.")
+        }
+        
+        return false
+    }
+    
     func getSavedPhotos() throws -> [URL]  {
         let documentsDirectory = getDocumentsDirectory()
         
-        let allFiles = try FileManager.default.contentsOfDirectory(at: documentsDirectory, includingPropertiesForKeys: nil)
-        
-        let heicFiles = allFiles.filter { $0.pathExtension.lowercased() == "heic" }
-        
-        return heicFiles.sorted(by: {$0.lastPathComponent < $1.lastPathComponent})
+        return try getFiles(at: documentsDirectory, with: "heic")
     }
     
     func getSavedVideos() throws -> [URL]  {
         let documentsDirectory = getDocumentsDirectory()
         
-        let allFiles = try FileManager.default.contentsOfDirectory(at: documentsDirectory, includingPropertiesForKeys: nil)
+        return try getFiles(at: documentsDirectory, with: "mp4")
+    }
+    
+    private func getFiles(at directory: URL, with pathExtension: String) throws -> [URL] {
+        let allFiles = try FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil)
         
-        let mp4Files = allFiles.filter { $0.pathExtension.lowercased() == "mp4" }
+        let specificFiles = allFiles.filter { $0.pathExtension.lowercased() == pathExtension }
         
-        return mp4Files.sorted(by: {$0.lastPathComponent < $1.lastPathComponent})
+        return specificFiles.sorted(by: {$0.lastPathComponent < $1.lastPathComponent})
     }
 }

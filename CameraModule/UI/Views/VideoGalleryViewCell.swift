@@ -12,10 +12,19 @@ class VideoGalleryViewCell: UICollectionViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    var videoUrl: URL?
+    private var videoUrl: URL?
+    private var showAlert: ((@escaping () -> Void) -> Void)?
     
-    func config(_ videoUrl: URL) {
-        self.videoUrl = videoUrl
+    func config(url: URL, showAlert: @escaping ((@escaping () -> Void) -> Void)) {
+        self.videoUrl = url
+        self.showAlert = showAlert
+        
+        setupImageView()
+        setupGestureRecogniser()
+    }
+    
+    private func setupImageView() {
+        guard let videoUrl else { return }
         
         let asset = AVAsset(url: videoUrl)
         
@@ -45,5 +54,26 @@ class VideoGalleryViewCell: UICollectionViewCell {
         let seconds = Int(durationInSeconds) % 60
             
         return (String(format: "%02d:%02d:%02d", hours, minutes, seconds))
+    }
+    
+    private func setupGestureRecogniser() {
+        let longPressGR = UILongPressGestureRecognizer(target: self, action: #selector(deleteVideo))
+        
+        self.addGestureRecognizer(longPressGR)
+    }
+    
+    @objc
+    private func deleteVideo() {
+        guard let videoUrl,
+              let showAlert
+        else { return }
+        
+        AnimationProvider.shared.zoomInAnimation(view: self) {
+            showAlert {
+                StorageManager.shared.removeFile(at: videoUrl)
+
+                NotificationCenter.default.post(name: GalleryViewController.NotificationName.needGalleryUpdate, object: nil)
+            }
+        }
     }
 }

@@ -27,6 +27,7 @@
 		8C4124AA2CF12EDD000F61DB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4124A92CF12EDD000F61DB /* StorageManager.swift */; };
 		8C75B0562CF168C400185AE5 /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75B0552CF168C400185AE5 /* PhotoPreviewViewController.swift */; };
 		8C75B0582CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75B0572CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift */; };
+		8CAF0B162CF38EAF009E1F29 /* AnimationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAF0B152CF38EAF009E1F29 /* AnimationProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		8C4124A92CF12EDD000F61DB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		8C75B0552CF168C400185AE5 /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
 		8C75B0572CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+RecordingDelegate.swift"; sourceTree = "<group>"; };
+		8CAF0B152CF38EAF009E1F29 /* AnimationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		8C41248E2CF0A7EE000F61DB /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8CAF0B142CF38EA3009E1F29 /* Animation */,
 				8C4124A12CF105AE000F61DB /* Data */,
 				8C4124942CF0C3CB000F61DB /* ViewControllers */,
 				8C4124932CF0C3C2000F61DB /* Views */,
@@ -139,6 +142,14 @@
 				8C382E6E2CF180470099B5BD /* LibraryManager.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		8CAF0B142CF38EA3009E1F29 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				8CAF0B152CF38EAF009E1F29 /* AnimationProvider.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +239,7 @@
 				8C4124A82CF11A3C000F61DB /* CameraViewController+Authorisation.swift in Sources */,
 				8C4124792CEFEE1F000F61DB /* AppDelegate.swift in Sources */,
 				8C41247B2CEFEE1F000F61DB /* SceneDelegate.swift in Sources */,
+				8CAF0B162CF38EAF009E1F29 /* AnimationProvider.swift in Sources */,
 				8C4124982CF0F1F5000F61DB /* VideoGalleryViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

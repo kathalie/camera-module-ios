@@ -120,14 +120,9 @@ class CameraViewController: UIViewController {
     //MARK: initial UI setup
     
     private func initialUiSetup() {
-        initialCapturingModesSetup()
         initialRectangleSetup()
         initialCapturingModesSegmentedViewSetup()
         initialCaptureButonSetup()
-    }
-    
-    private func initialCapturingModesSetup() {
-        capturingModesSegmentedView.selectedSegmentIndex = CapturingMode.current.position
     }
     
     private func initialRectangleSetup() {
@@ -150,6 +145,8 @@ class CameraViewController: UIViewController {
         
         capturingModesSegmentedView.setAction(photoAction, forSegmentAt: CapturingMode.photo.position)
         capturingModesSegmentedView.setAction(videoAction, forSegmentAt: CapturingMode.video(recording: false).position)
+        
+        capturingModesSegmentedView.selectedSegmentIndex = CapturingMode.current.position
     }
     
     private func initialCaptureButonSetup() {
