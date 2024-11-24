@@ -28,6 +28,7 @@
 		8C75B0562CF168C400185AE5 /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75B0552CF168C400185AE5 /* PhotoPreviewViewController.swift */; };
 		8C75B0582CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C75B0572CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift */; };
 		8CAF0B162CF38EAF009E1F29 /* AnimationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAF0B152CF38EAF009E1F29 /* AnimationProvider.swift */; };
+		8CAF0B1A2CF39AD6009E1F29 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAF0B192CF39AD6009E1F29 /* SectionHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		8C75B0552CF168C400185AE5 /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
 		8C75B0572CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+RecordingDelegate.swift"; sourceTree = "<group>"; };
 		8CAF0B152CF38EAF009E1F29 /* AnimationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationProvider.swift; sourceTree = "<group>"; };
+		8CAF0B192CF39AD6009E1F29 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				8C4124A42CF108EC000F61DB /* ViewController+Alerts.swift */,
 				8C75B0552CF168C400185AE5 /* PhotoPreviewViewController.swift */,
 				8C382E6C2CF17E670099B5BD /* VideoPreviewViewController.swift */,
+				8CAF0B192CF39AD6009E1F29 /* SectionHeader.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				8C4124A52CF108ED000F61DB /* ViewController+Alerts.swift in Sources */,
 				8C75B0582CF1761400185AE5 /* CameraViewController+RecordingDelegate.swift in Sources */,
 				8C382E6F2CF180470099B5BD /* LibraryManager.swift in Sources */,
+				8CAF0B1A2CF39AD6009E1F29 /* SectionHeader.swift in Sources */,
 				8C382E6D2CF17E670099B5BD /* VideoPreviewViewController.swift in Sources */,
 				8C41249A2CF0F3AB000F61DB /* PreviewView.swift in Sources */,
 				8C4124922CF0B23D000F61DB /* CameraViewController.swift in Sources */,

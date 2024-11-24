@@ -12,6 +12,7 @@ class GalleryViewController: UICollectionViewController {
     struct Const {
         static let photoCellReuseIdentifier = "photo_cell"
         static let videoCellReuseIdentifier = "video_cell"
+        static let sectionHeaderReuseIdentifier = "section_header"
         static let goToCameraViewSegue = "go_to_camera_view"
         static let goToPhotoPreviewSegue = "go_to_photo_preview"
         static let goToVideoPreviewSegue = "go_to_video_preview"
@@ -22,8 +23,8 @@ class GalleryViewController: UICollectionViewController {
     }
     
     enum Section: String, CaseIterable {
-        case photos = "Photos"
-        case videos = "Video"
+        case photos = "Images"
+        case videos = "Movies"
     }
     
     var filePaths: [Section: [URL]] = [
@@ -108,6 +109,15 @@ class GalleryViewController: UICollectionViewController {
         } else if indexPath.section == 1 {
             performSegue(withIdentifier: Const.goToVideoPreviewSegue, sender: indexPath.row)
         }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Const.sectionHeaderReuseIdentifier, for: indexPath) as! SectionHeader
+        
+        sectionHeader.config(caption: Section.allCases[indexPath.section].rawValue)
+        
+        return sectionHeader
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
